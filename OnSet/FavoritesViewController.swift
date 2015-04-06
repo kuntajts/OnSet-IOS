@@ -16,14 +16,16 @@ class FavoritesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var user = PFUser.currentUser()
+        if (PFUser.currentUser() != nil){
         var relation = user.relationForKey("tags")
-        relation.query().findObjectsInBackgroundWithBlock{
-            (objects:[AnyObject]!, error: NSError!) -> Void in
-            if error != nil{
-                println(error)
-            }else{
-                self.movies = objects
-                self.tableView.reloadData()
+            relation.query().findObjectsInBackgroundWithBlock{
+                (objects:[AnyObject]!, error: NSError!) -> Void in
+                if error != nil{
+                    println(error)
+                }else{
+                    self.movies = objects
+                    self.tableView.reloadData()
+                }
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
