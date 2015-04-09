@@ -9,6 +9,7 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
+    
     @IBOutlet weak var MovieLabel: UILabel!
     
     var movieInfo: AnyObject? {
@@ -19,12 +20,7 @@ class MovieDetailViewController: UIViewController {
     }
     
     func configureView() {
-        // Update the user interface for the detail item.
-        if let detail: AnyObject = self.movieInfo {
-            if let label = self.MovieLabel {
-                label.text = detail.description
-            }
-        }
+        print(movieInfo)
     }
 
     

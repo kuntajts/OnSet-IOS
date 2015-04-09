@@ -48,17 +48,25 @@ class FavoritesViewController: UITableViewController {
         return movies.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as?
-        UITableViewCell
-        if (cell == nil) {
-            cell! = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        }
+    override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell {
+        let cell:FavoritesViewCell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath!) as
+        FavoritesViewCell
+        /*if (cell == nil) {
+            cell! = FavoritesViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        }*/
         
-        let object:AnyObject = movies[indexPath.row]
-        cell!.textLabel?.text = object["title"] as? String
-        cell!.detailTextLabel?.text = object["release_date"] as? String
-        return cell!
+        let object:PFObject = movies[indexPath!.row] as PFObject
+        cell.movieTitle.text = object["title"] as? String
+        cell.synopsis.text = object["synopsis"] as? String
+        //cell.synopsis.font = UIFont.systemFontOfSize(10.0)
+        
+        let url:NSURL = NSURL(string: object["poster_thumbnail"] as String)!
+        InternalHelper.downloadImage(url, handler: {
+            (image, error:NSError!) -> Void in
+            cell.thumbnailImage.image = image
+        })
+        
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
