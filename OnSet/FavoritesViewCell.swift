@@ -22,7 +22,6 @@ class FavoritesViewCell: UITableViewCell {
         synopsis.layer.cornerRadius = 4.0
         synopsis.textColor = UIColor.whiteColor()
         synopsis.editable = false
-        
         thumbnailImage.clipsToBounds = true
         thumbnailImage.layer.cornerRadius = 4.0
     }

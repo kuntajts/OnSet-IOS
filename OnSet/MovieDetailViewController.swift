@@ -21,7 +21,7 @@ class MovieDetailViewController: UIViewController {
     }
     
     func configureView() {
-        print(movieInfo)
+        print(movieInfo["title"])
         //MovieLabel.text = movieInfo["title"] as? String
     }
 

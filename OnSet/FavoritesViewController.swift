@@ -16,23 +16,10 @@ class FavoritesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var user = PFUser.currentUser()
-        if (PFUser.currentUser() != nil){
-        var relation = user.relationForKey("tags")
-            relation.query().findObjectsInBackgroundWithBlock{
-                (objects:[AnyObject]!, error: NSError!) -> Void in
-                if error != nil{
-                    println(error)
-                }else{
-                    self.movies = objects as [PFObject]
-                    self.tableView.reloadData()
-                }
-            }
-        }
-        // Do any additional setup after loading the view, typically from a nib.
         
         //adding test movie
-        var query = PFQuery(className:"OMDBMovies")
-        query.getObjectInBackgroundWithId("X7wj91symO") {
+        /*var query = PFQuery(className:"OMDBMovies")
+        query.getObjectInBackgroundWithId("ytwItAwx0c") {
             (movie: PFObject!, error: NSError!) -> Void in
             if error == nil && movie != nil {
                 println(movie)
@@ -49,7 +36,23 @@ class FavoritesViewController: UITableViewController {
             } else {
                 println(error)
             }
+        }*/
+        
+        if (PFUser.currentUser() != nil){
+        var relation = user.relationForKey("tags")
+            relation.query().findObjectsInBackgroundWithBlock{
+                (objects:[AnyObject]!, error: NSError!) -> Void in
+                if error != nil{
+                    println(error)
+                }else{
+                    self.movies = objects as [PFObject]
+                    self.tableView.reloadData()
+                }
+            }
         }
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -96,6 +99,7 @@ class FavoritesViewController: UITableViewController {
         
         let object:PFObject = movies[indexPath!.row] as PFObject
         cell.movieTitle.text = object["Title"] as? String
+        print(object["Title"])
         cell.synopsis.text = object["Plot"] as? String
         //cell.synopsis.font = UIFont.systemFontOfSize(10.0)
         
