@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class MovieDetailViewController: UIViewController {
     
     @IBOutlet weak var MovieLabel: UILabel!
     
-    var movieInfo: AnyObject? {
+    var movieInfo: PFObject! {
         didSet {
             // Update the view.
             self.configureView()
@@ -21,6 +22,7 @@ class MovieDetailViewController: UIViewController {
     
     func configureView() {
         print(movieInfo)
+        //MovieLabel.text = movieInfo["title"] as? String
     }
 
     

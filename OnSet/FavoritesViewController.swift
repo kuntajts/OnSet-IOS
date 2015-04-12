@@ -11,7 +11,7 @@ import Parse
 
 class FavoritesViewController: UITableViewController {
     
-    var movies:[AnyObject] = []
+    var movies:[PFObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +23,58 @@ class FavoritesViewController: UITableViewController {
                 if error != nil{
                     println(error)
                 }else{
-                    self.movies = objects
+                    self.movies = objects as [PFObject]
                     self.tableView.reloadData()
                 }
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //adding test movie
+        var query = PFQuery(className:"OMDBMovies")
+        query.getObjectInBackgroundWithId("X7wj91symO") {
+            (movie: PFObject!, error: NSError!) -> Void in
+            if error == nil && movie != nil {
+                println(movie)
+                var relation = user.relationForKey("tags")
+                relation.addObject(movie)
+                user.saveInBackgroundWithBlock({
+                    (success:Bool,error1: NSError!) -> Void in
+                    if(success){
+                        println("saved")
+                    }else{
+                        println("failed")
+                    }
+                })
+            } else {
+                println(error)
+            }
+        }
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        if (movies.count == 0) {
+            var user = PFUser.currentUser()
+            if (PFUser.currentUser() != nil){
+                var relation = user.relationForKey("tags")
+                relation.query().findObjectsInBackgroundWithBlock{
+                    (objects:[AnyObject]!, error: NSError!) -> Void in
+                    if error != nil{
+                        println(error)
+                    }else{
+                        self.movies = objects as [PFObject]
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GoToMovieDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object:AnyObject = movies[indexPath.row]
-                (segue.destinationViewController as MovieDetailViewController).movieInfo = object
+                (segue.destinationViewController as MovieDetailViewController).movieInfo = object as PFObject
             }
         }
     }
@@ -56,11 +95,11 @@ class FavoritesViewController: UITableViewController {
         }*/
         
         let object:PFObject = movies[indexPath!.row] as PFObject
-        cell.movieTitle.text = object["title"] as? String
-        cell.synopsis.text = object["synopsis"] as? String
+        cell.movieTitle.text = object["Title"] as? String
+        cell.synopsis.text = object["Plot"] as? String
         //cell.synopsis.font = UIFont.systemFontOfSize(10.0)
         
-        let url:NSURL = NSURL(string: object["poster_thumbnail"] as String)!
+        let url:NSURL = NSURL(string: object["Poster"] as String)!
         InternalHelper.downloadImage(url, handler: {
             (image, error:NSError!) -> Void in
             cell.thumbnailImage.image = image
