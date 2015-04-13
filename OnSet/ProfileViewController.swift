@@ -7,18 +7,31 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        var user = PFUser.currentUser()
+        usernameLabel.text = user["username"] as? String
+    
     }
 
+    @IBAction func logoutClicked(sender: UIButton) {
+        PFUser.logOut()
+        var currentUser = PFUser.currentUser()
+        let mainViewController = self.parentViewController as MainViewController
+        
+        mainViewController.setUpLogin()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
 

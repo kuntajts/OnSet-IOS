@@ -11,7 +11,12 @@ import Parse
 
 class MovieDetailViewController: UIViewController {
     
-    @IBOutlet weak var MovieLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var releaseLabel: UILabel?
+    @IBOutlet weak var directorLabel: UILabel?
+    @IBOutlet weak var ratingLabel: UILabel?
+    @IBOutlet weak var plotTextView: UITextView?
+    @IBOutlet weak var posterView: UIImageView!
     
     var movieInfo: PFObject! {
         didSet {
@@ -21,8 +26,22 @@ class MovieDetailViewController: UIViewController {
     }
     
     func configureView() {
-        print(movieInfo["title"])
-        //MovieLabel.text = movieInfo["title"] as? String
+        getPosterImage()
+        self.navigationItem.title = movieInfo["Title"] as? String
+        print(movieInfo)
+        titleLabel?.text = movieInfo["Title"] as? String
+        directorLabel?.text = movieInfo["Director"] as? String
+        releaseLabel?.text = movieInfo["Released"] as? String
+        ratingLabel?.text = movieInfo["imdbRating"] as? String
+        //plotTextView?.text = movieInfo["Plot"] as? String
+    }
+    
+    func getPosterImage() {
+        let url:NSURL = NSURL(string: movieInfo["Poster"] as String)!
+        InternalHelper.downloadImage(url, handler: {
+            (image, error:NSError!) -> Void in
+            self.posterView.image = image
+        })
     }
 
     

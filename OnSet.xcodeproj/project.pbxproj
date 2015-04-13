@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6AAC8E1ADB338B003B864F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC431ABF6613003997B8 /* ProfileViewController.swift */; };
 		0F791B501ACD84B500930B52 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F791B451ACD84B500930B52 /* AudioToolbox.framework */; };
 		0F791B511ACD84B500930B52 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F791B461ACD84B500930B52 /* CFNetwork.framework */; };
 		0F791B521ACD84B500930B52 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F791B471ACD84B500930B52 /* CoreGraphics.framework */; };
@@ -41,7 +42,6 @@
 		5637EC361ABF609C003997B8 /* OnSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC351ABF609C003997B8 /* OnSetTests.swift */; };
 		5637EC401ABF63D5003997B8 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC3F1ABF63D5003997B8 /* TagViewController.swift */; };
 		5637EC421ABF649B003997B8 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC411ABF649B003997B8 /* CalendarViewController.swift */; };
-		5637EC441ABF6613003997B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC431ABF6613003997B8 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,8 +331,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F8F8CC41AD1C421004093E2 /* MainViewController.swift in Sources */,
-				5637EC441ABF6613003997B8 /* ProfileViewController.swift in Sources */,
 				5637EC421ABF649B003997B8 /* CalendarViewController.swift in Sources */,
+				0F6AAC8E1ADB338B003B864F /* ProfileViewController.swift in Sources */,
 				5637EC221ABF609B003997B8 /* SocialViewController.swift in Sources */,
 				0F8DEF721AD232BD0007330A /* MovieDetailViewController.swift in Sources */,
 				0FDF075C1AD61B7B003F857C /* FavoritesViewCell.swift in Sources */,

@@ -24,7 +24,62 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        setUpLogin()
+    }
+    
+    
+    func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
         
+        
+        if (!username.isEmpty || !password.isEmpty) {
+            return true
+        }else {
+            return false
+        }
+        
+    }
+   
+    func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
+        /*
+        if !PFFacebookUtils.isLinkedWithUser(user) {
+            PFFacebookUtils.linkUser(user, permissions:nil, {
+                (succeeded: Bool!, error: NSError!) -> Void in
+                if succeeded != nil {
+                    println("Woohoo, user logged in with Facebook!")
+                }
+            })
+        }
+        */
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
+        /*
+        if !PFFacebookUtils.isLinkedWithUser(user) {
+            PFFacebookUtils.linkUser(user, permissions:nil, {
+                (succeeded: Bool!, error: NSError!) -> Void in
+                if succeeded != nil {
+                    println("Woohoo, user logged in with Facebook!")
+                }
+            })
+        }
+        */
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
+        println("Failed to login...")
+    }
+    
+    func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
+        println("Failed to sign up...")
+    }
+    
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
+        println("User dismissed sign up.")
+    }
+    
+    internal func setUpLogin() {
         if (PFUser.currentUser() == nil) {
             
             var logInViewController = PFLogInViewController()
@@ -42,57 +97,6 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
             self.presentViewController(logInViewController, animated: true, completion: nil)
             
         }
-        
-    }
-    
-    
-    func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
-        
-        
-        if (!username.isEmpty || !password.isEmpty) {
-            return true
-        }else {
-            return false
-        }
-        
-    }
-    
-    func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
-        
-        if !PFFacebookUtils.isLinkedWithUser(user) {
-            PFFacebookUtils.linkUser(user, permissions:nil, {
-                (succeeded: Bool!, error: NSError!) -> Void in
-                if succeeded != nil {
-                    println("Woohoo, user logged in with Facebook!")
-                }
-            })
-        }
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
-        if !PFFacebookUtils.isLinkedWithUser(user) {
-            PFFacebookUtils.linkUser(user, permissions:nil, {
-                (succeeded: Bool!, error: NSError!) -> Void in
-                if succeeded != nil {
-                    println("Woohoo, user logged in with Facebook!")
-                }
-            })
-        }
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
-        println("Failed to login...")
-    }
-    
-    func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
-        println("Failed to sign up...")
-    }
-    
-    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
-        println("User dismissed sign up.")
     }
     
     override func didReceiveMemoryWarning() {

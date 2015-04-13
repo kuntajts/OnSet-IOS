@@ -9,6 +9,9 @@
 import UIKit
 import XCTest
 
+
+
+
 class OnSetTests: XCTestCase {
     
     override func setUp() {
@@ -25,9 +28,14 @@ class OnSetTests: XCTestCase {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
     }
-    func testSignUp(){
-        
-        
+    /*
+    func testCorrectUser(){
+        let SB = UIStoryboard(name: "Main", bundle: nil)
+        myVC = SB.instantiateViewControllerWithIdentifier("profileView") as ViewController
+        let_ = myVC.view
+        let usernameWanted = "YRaFiKEFrZvffbqeXxjYtZsWR"
+        var usernameCurrent = user["username"] as? String
+        XCTAssertEqual(usernameWanted, usernameCurrent, "These two usernames should both be YRaFiKEFrZvffbqeXxjYtZsWR!!!!!")
     }
     func testLogIn(){
         
@@ -41,7 +49,7 @@ class OnSetTests: XCTestCase {
     func testMovieInformationRecovery(){
         
     }
-    
+    */
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {

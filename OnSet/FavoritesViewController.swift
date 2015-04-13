@@ -98,10 +98,9 @@ class FavoritesViewController: UITableViewController {
         }*/
         
         let object:PFObject = movies[indexPath!.row] as PFObject
+        cell.releaseDate.text = object["Released"] as? String
         cell.movieTitle.text = object["Title"] as? String
-        print(object["Title"])
-        cell.synopsis.text = object["Plot"] as? String
-        //cell.synopsis.font = UIFont.systemFontOfSize(10.0)
+        
         
         let url:NSURL = NSURL(string: object["Poster"] as String)!
         InternalHelper.downloadImage(url, handler: {

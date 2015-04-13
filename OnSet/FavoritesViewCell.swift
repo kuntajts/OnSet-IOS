@@ -11,17 +11,11 @@ import UIKit
 class FavoritesViewCell: UITableViewCell {
     @IBOutlet weak var movieTitle: UILabel! = UILabel()
     @IBOutlet weak var thumbnailImage: UIImageView! = UIImageView()
-    @IBOutlet weak var synopsis: UITextView! = UITextView()
+    @IBOutlet weak var releaseDate: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        synopsis.editable = true
-        synopsis.font = UIFont.systemFontOfSize(10.0)
-        synopsis.clipsToBounds = true
-        synopsis.layer.cornerRadius = 4.0
-        synopsis.textColor = UIColor.whiteColor()
-        synopsis.editable = false
         thumbnailImage.clipsToBounds = true
         thumbnailImage.layer.cornerRadius = 4.0
     }
