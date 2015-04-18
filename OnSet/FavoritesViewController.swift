@@ -40,37 +40,20 @@ class FavoritesViewController: UITableViewController {
         }
         */
         
-        if ( PFUser.currentUser() != nil){
-        var relation = user!.relationForKey("tags")
-            var queryRelation = relation.query()
-            queryRelation!.findObjectsInBackgroundWithBlock{
+        
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        var user = PFUser.currentUser()
+        if (PFUser.currentUser() != nil){
+            var relation = user!.relationForKey("tags")
+            relation.query()!.findObjectsInBackgroundWithBlock{
                 (objects, error) -> Void in
                 if error != nil{
                     println(error)
                 }else{
                     self.movies = (objects as? [PFObject])!
                     self.tableView.reloadData()
-                }
-            }
-        }
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        if (movies.count == 0) {
-            var user = PFUser.currentUser()
-            if (PFUser.currentUser() != nil){
-                var relation = user!.relationForKey("tags")
-                relation.query()!.findObjectsInBackgroundWithBlock{
-                    (objects, error) -> Void in
-                    if error != nil{
-                        println(error)
-                    }else{
-                        self.movies = (objects as? [PFObject])!
-                        self.tableView.reloadData()
-                    }
                 }
             }
         }

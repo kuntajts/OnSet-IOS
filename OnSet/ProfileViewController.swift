@@ -15,11 +15,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+    
+    }
+    override func viewDidAppear(animated: Bool) {
         var user = PFUser.currentUser()
         var usernameData: AnyObject? = user!["username"]
         usernameLabel.text = usernameData as? String
-    
     }
 
     @IBAction func logoutClicked(sender: UIButton) {

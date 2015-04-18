@@ -67,8 +67,8 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
         if (PFUser.currentUser() == nil) {
             
             var logInViewController = PFLogInViewController()
-            logInViewController.view.backgroundColor = UIColor.blackColor()
-            logInViewController.logInView!.logo=logoView
+            //logInViewController.view.backgroundColor = UIColor.blackColor()
+            //logInViewController.logInView!.logo=logoView
             //logInViewController.logInView!.logo!.frame = CGRectOffset(logInViewController.logInView!.logo!.frame, 10, -100 )
             //logInViewController.logInView!.logo!.center = CGPointMake(200, 100);
             
