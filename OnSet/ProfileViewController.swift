@@ -15,17 +15,19 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         var user = PFUser.currentUser()
-        usernameLabel.text = user["username"] as? String
+        var usernameData: AnyObject? = user!["username"]
+        usernameLabel.text = usernameData as? String
     
     }
 
     @IBAction func logoutClicked(sender: UIButton) {
         PFUser.logOut()
         var currentUser = PFUser.currentUser()
-        let mainViewController = self.parentViewController as MainViewController
+        let mainViewController = self.parentViewController as? MainViewController
         
-        mainViewController.setUpLogin()
+        mainViewController!.setUpLogin()
     }
     
     override func didReceiveMemoryWarning() {

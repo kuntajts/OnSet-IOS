@@ -18,15 +18,16 @@ class FavoritesViewController: UITableViewController {
         var user = PFUser.currentUser()
         
         //adding test movie
-        /*var query = PFQuery(className:"OMDBMovies")
+        /*
+        var query = PFQuery(className:"OMDBMovies")
         query.getObjectInBackgroundWithId("ytwItAwx0c") {
-            (movie: PFObject!, error: NSError!) -> Void in
+            (movie, error) -> Void in
             if error == nil && movie != nil {
                 println(movie)
-                var relation = user.relationForKey("tags")
-                relation.addObject(movie)
-                user.saveInBackgroundWithBlock({
-                    (success:Bool,error1: NSError!) -> Void in
+                var relation = user!.relationForKey("tags")
+                relation.addObject(movie!)
+                user!.saveInBackgroundWithBlock({
+                    (success,error1) -> Void in
                     if(success){
                         println("saved")
                     }else{
@@ -36,16 +37,18 @@ class FavoritesViewController: UITableViewController {
             } else {
                 println(error)
             }
-        }*/
+        }
+        */
         
-        if (PFUser.currentUser() != nil){
-        var relation = user.relationForKey("tags")
-            relation.query().findObjectsInBackgroundWithBlock{
-                (objects:[AnyObject]!, error: NSError!) -> Void in
+        if ( PFUser.currentUser() != nil){
+        var relation = user!.relationForKey("tags")
+            var queryRelation = relation.query()
+            queryRelation!.findObjectsInBackgroundWithBlock{
+                (objects, error) -> Void in
                 if error != nil{
                     println(error)
                 }else{
-                    self.movies = objects as [PFObject]
+                    self.movies = (objects as? [PFObject])!
                     self.tableView.reloadData()
                 }
             }
@@ -59,13 +62,13 @@ class FavoritesViewController: UITableViewController {
         if (movies.count == 0) {
             var user = PFUser.currentUser()
             if (PFUser.currentUser() != nil){
-                var relation = user.relationForKey("tags")
-                relation.query().findObjectsInBackgroundWithBlock{
-                    (objects:[AnyObject]!, error: NSError!) -> Void in
+                var relation = user!.relationForKey("tags")
+                relation.query()!.findObjectsInBackgroundWithBlock{
+                    (objects, error) -> Void in
                     if error != nil{
                         println(error)
                     }else{
-                        self.movies = objects as [PFObject]
+                        self.movies = (objects as? [PFObject])!
                         self.tableView.reloadData()
                     }
                 }
@@ -77,7 +80,7 @@ class FavoritesViewController: UITableViewController {
         if segue.identifier == "GoToMovieDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object:AnyObject = movies[indexPath.row]
-                (segue.destinationViewController as MovieDetailViewController).movieInfo = object as PFObject
+                (segue.destinationViewController as? MovieDetailViewController)!.movieInfo = object as? PFObject
             }
         }
     }
@@ -91,8 +94,8 @@ class FavoritesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell {
-        let cell:FavoritesViewCell = tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath!) as
-        FavoritesViewCell
+        let cell:FavoritesViewCell = (tableView!.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath!) as?
+        FavoritesViewCell)!
         /*if (cell == nil) {
             cell! = FavoritesViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         }*/
@@ -101,8 +104,8 @@ class FavoritesViewController: UITableViewController {
         cell.releaseDate.text = object["Released"] as? String
         cell.movieTitle.text = object["Title"] as? String
         
-        
-        let url:NSURL = NSURL(string: object["Poster"] as String)!
+        var poster:AnyObject?=object["Poster"]
+        let url:NSURL = NSURL(string: (poster as? String)!)!
         InternalHelper.downloadImage(url, handler: {
             (image, error:NSError!) -> Void in
             cell.thumbnailImage.image = image

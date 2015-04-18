@@ -14,7 +14,7 @@ class InternalHelper {
     class func dataToJson(data: NSData) -> NSDictionary
     {
         var error: NSError?
-        var jsonDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+        var jsonDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSDictionary
         return jsonDictionary
     }
     

@@ -11,6 +11,8 @@ import Parse
 
 class MovieDetailViewController: UIViewController {
     
+    @IBOutlet weak var findTheatreButton: UIButton!
+    @IBOutlet weak var watchTrailerButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var releaseLabel: UILabel?
     @IBOutlet weak var directorLabel: UILabel?
@@ -18,12 +20,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var plotTextView: UITextView?
     @IBOutlet weak var posterView: UIImageView!
     
-    var movieInfo: PFObject! {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
-    }
+    var movieInfo: PFObject!
     
     func configureView() {
         getPosterImage()
@@ -33,11 +30,12 @@ class MovieDetailViewController: UIViewController {
         directorLabel?.text = movieInfo["Director"] as? String
         releaseLabel?.text = movieInfo["Released"] as? String
         ratingLabel?.text = movieInfo["imdbRating"] as? String
-        //plotTextView?.text = movieInfo["Plot"] as? String
+        plotTextView?.text = movieInfo["Plot"] as? String
     }
     
     func getPosterImage() {
-        let url:NSURL = NSURL(string: movieInfo["Poster"] as String)!
+        var data: AnyObject?=movieInfo["Poster"]
+        let url:NSURL = NSURL(string: data as! String)!
         InternalHelper.downloadImage(url, handler: {
             (image, error:NSError!) -> Void in
             self.posterView.image = image
@@ -48,6 +46,13 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        plotTextView!.clipsToBounds = true
+        plotTextView!.layer.cornerRadius = 4.0
+        findTheatreButton!.clipsToBounds = true
+        findTheatreButton!.layer.cornerRadius = 4.0
+        watchTrailerButton!.clipsToBounds = true
+        watchTrailerButton!.layer.cornerRadius = 4.0
+        self.configureView()
     }
     
     override func didReceiveMemoryWarning() {

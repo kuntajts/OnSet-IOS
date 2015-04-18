@@ -12,9 +12,11 @@ import ParseUI
 
 
 class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
-    
+    var logoView=UIImageView(image: UIImage(named:"splash"))
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor=UIColor.darkGrayColor()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -28,7 +30,7 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
     }
     
     
-    func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
+    func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
         
         
         if (!username.isEmpty || !password.isEmpty) {
@@ -39,43 +41,24 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
         
     }
    
-    func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
-        /*
-        if !PFFacebookUtils.isLinkedWithUser(user) {
-            PFFacebookUtils.linkUser(user, permissions:nil, {
-                (succeeded: Bool!, error: NSError!) -> Void in
-                if succeeded != nil {
-                    println("Woohoo, user logged in with Facebook!")
-                }
-            })
-        }
-        */
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
-        /*
-        if !PFFacebookUtils.isLinkedWithUser(user) {
-            PFFacebookUtils.linkUser(user, permissions:nil, {
-                (succeeded: Bool!, error: NSError!) -> Void in
-                if succeeded != nil {
-                    println("Woohoo, user logged in with Facebook!")
-                }
-            })
-        }
-        */
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
+    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
         println("Failed to login...")
     }
     
-    func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
+    func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
         println("Failed to sign up...")
     }
     
-    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController) {
         println("User dismissed sign up.")
     }
     
@@ -83,6 +66,7 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
         if (PFUser.currentUser() == nil) {
             
             var logInViewController = PFLogInViewController()
+            //logInViewController.logInView!.logo=logoView
             
             logInViewController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.LogInButton | PFLogInFields.SignUpButton | PFLogInFields.PasswordForgotten | PFLogInFields.Facebook
             
