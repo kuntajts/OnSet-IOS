@@ -33,6 +33,13 @@
 		0F8F8CEF1AD1F79C004093E2 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8F8CEE1AD1F79C004093E2 /* ParseFacebookUtils.framework */; };
 		0FDF075C1AD61B7B003F857C /* FavoritesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF075B1AD61B7B003F857C /* FavoritesViewCell.swift */; };
 		0FDF07641AD629C5003F857C /* InternalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF07631AD629C5003F857C /* InternalHelper.swift */; };
+		1AE997631AE985510071C197 /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997621AE985510071C197 /* CLWeeklyCalendarView.m */; };
+		1AE997671AE9858C0071C197 /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997661AE9858C0071C197 /* DailyCalendarView.m */; };
+		1AE9976A1AE9859F0071C197 /* DayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997691AE9859F0071C197 /* DayTitleLabel.m */; };
+		1AE997741AE985B30071C197 /* NSDate+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9976D1AE985B30071C197 /* NSDate+CL.m */; };
+		1AE997751AE985B30071C197 /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9976F1AE985B30071C197 /* NSDictionary+CL.m */; };
+		1AE997761AE985B30071C197 /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997711AE985B30071C197 /* UIColor+CL.m */; };
+		1AE997771AE985B30071C197 /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997731AE985B30071C197 /* UIImage+CL.m */; };
 		5637EC1E1ABF609B003997B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC1D1ABF609B003997B8 /* AppDelegate.swift */; };
 		5637EC201ABF609B003997B8 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC1F1ABF609B003997B8 /* FavoritesViewController.swift */; };
 		5637EC221ABF609B003997B8 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC211ABF609B003997B8 /* SocialViewController.swift */; };
@@ -81,6 +88,20 @@
 		0F8F8CEE1AD1F79C004093E2 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		0FDF075B1AD61B7B003F857C /* FavoritesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewCell.swift; sourceTree = "<group>"; };
 		0FDF07631AD629C5003F857C /* InternalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalHelper.swift; sourceTree = "<group>"; };
+		1AE997621AE985510071C197 /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
+		1AE997641AE985720071C197 /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
+		1AE997651AE9857E0071C197 /* DailyCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyCalendarView.h; sourceTree = "<group>"; };
+		1AE997661AE9858C0071C197 /* DailyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCalendarView.m; sourceTree = "<group>"; };
+		1AE997681AE985940071C197 /* DayTitleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayTitleLabel.h; sourceTree = "<group>"; };
+		1AE997691AE9859F0071C197 /* DayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTitleLabel.m; sourceTree = "<group>"; };
+		1AE9976C1AE985B30071C197 /* NSDate+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CL.h"; sourceTree = "<group>"; };
+		1AE9976D1AE985B30071C197 /* NSDate+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CL.m"; sourceTree = "<group>"; };
+		1AE9976E1AE985B30071C197 /* NSDictionary+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CL.h"; sourceTree = "<group>"; };
+		1AE9976F1AE985B30071C197 /* NSDictionary+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CL.m"; sourceTree = "<group>"; };
+		1AE997701AE985B30071C197 /* UIColor+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CL.h"; sourceTree = "<group>"; };
+		1AE997711AE985B30071C197 /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
+		1AE997721AE985B30071C197 /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
+		1AE997731AE985B30071C197 /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
 		5637EC181ABF609B003997B8 /* OnSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5637EC1C1ABF609B003997B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5637EC1D1ABF609B003997B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +185,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1AE9976B1AE985B30071C197 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				1AE9976C1AE985B30071C197 /* NSDate+CL.h */,
+				1AE9976D1AE985B30071C197 /* NSDate+CL.m */,
+				1AE9976E1AE985B30071C197 /* NSDictionary+CL.h */,
+				1AE9976F1AE985B30071C197 /* NSDictionary+CL.m */,
+				1AE997701AE985B30071C197 /* UIColor+CL.h */,
+				1AE997711AE985B30071C197 /* UIColor+CL.m */,
+				1AE997721AE985B30071C197 /* UIImage+CL.h */,
+				1AE997731AE985B30071C197 /* UIImage+CL.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		5637EC0F1ABF609A003997B8 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +222,13 @@
 		5637EC1A1ABF609B003997B8 /* OnSet */ = {
 			isa = PBXGroup;
 			children = (
+				1AE997621AE985510071C197 /* CLWeeklyCalendarView.m */,
+				1AE997691AE9859F0071C197 /* DayTitleLabel.m */,
+				1AE9976B1AE985B30071C197 /* Misc */,
+				1AE997641AE985720071C197 /* CLWeeklyCalendarView.h */,
+				1AE997681AE985940071C197 /* DayTitleLabel.h */,
+				1AE997661AE9858C0071C197 /* DailyCalendarView.m */,
+				1AE997651AE9857E0071C197 /* DailyCalendarView.h */,
 				0FDF07631AD629C5003F857C /* InternalHelper.swift */,
 				0FDF075B1AD61B7B003F857C /* FavoritesViewCell.swift */,
 				0F8DEF711AD232BD0007330A /* MovieDetailViewController.swift */,
@@ -330,16 +373,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AE997751AE985B30071C197 /* NSDictionary+CL.m in Sources */,
+				1AE997631AE985510071C197 /* CLWeeklyCalendarView.m in Sources */,
 				0F8F8CC41AD1C421004093E2 /* MainViewController.swift in Sources */,
+				1AE997671AE9858C0071C197 /* DailyCalendarView.m in Sources */,
 				5637EC421ABF649B003997B8 /* CalendarViewController.swift in Sources */,
 				0F6AAC8E1ADB338B003B864F /* ProfileViewController.swift in Sources */,
 				5637EC221ABF609B003997B8 /* SocialViewController.swift in Sources */,
 				0F8DEF721AD232BD0007330A /* MovieDetailViewController.swift in Sources */,
+				1AE997771AE985B30071C197 /* UIImage+CL.m in Sources */,
 				0FDF075C1AD61B7B003F857C /* FavoritesViewCell.swift in Sources */,
 				0FDF07641AD629C5003F857C /* InternalHelper.swift in Sources */,
 				5637EC401ABF63D5003997B8 /* TagViewController.swift in Sources */,
+				1AE9976A1AE9859F0071C197 /* DayTitleLabel.m in Sources */,
 				5637EC1E1ABF609B003997B8 /* AppDelegate.swift in Sources */,
 				5637EC201ABF609B003997B8 /* FavoritesViewController.swift in Sources */,
+				1AE997761AE985B30071C197 /* UIColor+CL.m in Sources */,
+				1AE997741AE985B30071C197 /* NSDate+CL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
