@@ -9,28 +9,87 @@
 import UIKit
 import Parse
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     var calendar:CLWeeklyCalendarView?
     var taggedMovie:PFObject!
+    var movies:[PFObject] = []
     
+    @IBOutlet weak var calendarTable: UITableView!
     override func viewDidLoad() {
         //var calendar:CLWeeklyCalendarView
         super.viewDidLoad()
         calendar=CLWeeklyCalendarView(frame: CGRectMake(0,0,self.view.bounds.size.width,150))
-        
+        calendarTable.dataSource=self
+        calendarTable.delegate=self
         self.view.addSubview(calendar!)
-        self.updateReleaseDates()
+        var user = PFUser.currentUser()
+        if (PFUser.currentUser() != nil){
+            var relation = user!.relationForKey("tags")
+            relation.query()!.findObjectsInBackgroundWithBlock{
+                (objects, error) -> Void in
+                if error != nil{
+                    println(error)
+                }else{
+                    self.movies = (objects as? [PFObject])!
+                    self.calendarTable.reloadData()
+                }
+            }
+        }
+        println(self.movies)
+
+        //self.updateReleaseDates()
         
         
         
         
         // Do any additional setup after loading the view.
     }
+
+    override func viewDidAppear(animated: Bool) {
+        //updateReleaseDates()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:FavoritesViewCell = (tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as?
+            FavoritesViewCell)!
+        /*if (cell == nil) {
+        cell! = FavoritesViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        }*/
+        
+        let object:PFObject = movies[indexPath.row] as PFObject
+        cell.releaseDate.text = object["Released"] as? String
+        cell.movieTitle.text = object["Title"] as? String
+        
+        var poster:AnyObject?=object["Poster"]
+        let url:NSURL = NSURL(string: (poster as? String)!)!
+        InternalHelper.downloadImage(url, handler: {
+            (image, error:NSError!) -> Void in
+            cell.thumbnailImage.image = image
+        })
+        return cell
+    }
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
+        var dateFinal:NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        println("in")
+        let object:AnyObject = movies[indexPath.row]
+        let date=object["Released"] as! String
+        dateFinal = dateFormatter.dateFromString(date)!
+        println(dateFinal)
+        self.calendar?.redrawToDate(dateFinal)
+    }
 
     /*
     // MARK: - Navigation
@@ -41,39 +100,23 @@ class CalendarViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func updateReleaseDates(){
-        var user=PFUser.currentUser()
+    /*func updateReleaseDates(){
         var dateFinal:NSDate
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        var query = PFQuery(className:"Movies2")
-        query.getObjectInBackgroundWithId("6oAdUGXXa9") {
-            (movie, error) -> Void in
-            if error == nil && movie != nil {
-                self.taggedMovie=movie
-                var myString=self.taggedMovie["Released"] as? String
-                println(movie)
-                println(myString)
-                let date = dateFormatter.dateFromString(myString!)
-                println(date)
-                var relation = user!.relationForKey("tags")
-                relation.addObject(self.taggedMovie)
-                user!.saveInBackgroundWithBlock({
-                    (success,error1) -> Void in
-                    if(success){
-                        println("saved")
-                        self.calendar?.colorDayLabel(date)
-                    }else{
-                        println("failed")
-                        //self.calendar.
-                    }
-                })
-            } else {
-                println(error)
-            }
+        println("in")
+        if let indexPath = self.calendarTable.indexPathForSelectedRow() {
+            let object:AnyObject = movies[indexPath.row]
+            let date=object["Released"] as! String
+            dateFinal = dateFormatter.dateFromString(date)!
+            println(dateFinal)
+            self.calendar?.redrawToDate(dateFinal)
         }
+        
+        //println(date)
+        
 
         
-    }
+    }*/
 
 }
