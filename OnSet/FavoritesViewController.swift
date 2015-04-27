@@ -15,13 +15,8 @@ class FavoritesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         //adding test movie
-        
-        
-        
-        
+        self.tabBarController?.selectedIndex = 2
     }
 
     override func viewDidAppear(animated: Bool) {

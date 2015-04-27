@@ -131,6 +131,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 {
     if(!_weatherIcon){
         _weatherIcon = [[UIImageView alloc] initWithFrame:CGRectMake(WEATHER_ICON_LEFT, WEATHER_ICON_MARGIN_TOP, WEATHER_ICON_WIDTH, WEATHER_ICON_HEIGHT)];
+
     }
     return _weatherIcon;
 }
@@ -400,6 +401,17 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
     [self markDateSelected:date];
     
     [self.delegate dailyCalendarViewDidSelect:date];
+}
+-(void)colorDayLabel:(NSDate *)date
+{
+    for (DailyCalendarView *v in [self.dailySubViewContainer subviews]){
+        if(v.date==date){
+            [v colorText: date];
+        }
+        
+    }
+    
+    
 }
 
 @end

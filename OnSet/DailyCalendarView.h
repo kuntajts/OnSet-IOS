@@ -15,7 +15,9 @@
 @interface DailyCalendarView : UIView
 @property (nonatomic, weak) id<DailyCalendarViewDelegate> delegate;
 @property (nonatomic, strong) NSDate *date;
+//@property (nonatomic, strong) UILabel *dateLabel;
 @property (nonatomic) BOOL blnSelected;
 
 -(void)markSelected:(BOOL)blnSelected;
+-(void)colorText:(NSDate *)date;
 @end

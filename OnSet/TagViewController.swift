@@ -12,9 +12,10 @@ import Parse
 
 class TagViewController: UIViewController {
     @IBOutlet weak var tagButton:UIButton!
-    @IBOutlet weak var navBar:UINavigationBar!
+    @IBOutlet weak var statusLabel: UILabel!
     var audioRecorder:AVAudioRecorder?
     var taggedMovie:[PFObject!]=[]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let dirPaths=NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
@@ -41,34 +42,50 @@ class TagViewController: UIViewController {
             }
         }
         
-
-        
         // Do any additional setup after loading the view.
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var recorder:AVAudioRecorder
         var duration:NSTimeInterval
         duration=30
-        println("start")
         audioRecorder?.recordForDuration(duration)
-        println("end")
-        //recordForDuration(duration)
         
+        /*addMovie("DrzfjyGN15")
+        addMovie("Jk4bkX8Ycu")
+        addMovie("m4ko9Qqkwe")
+        addMovie("W1ZB1uD9YS")
+        addMovie("7uF16sZ5bt")*/
         if(segue.identifier=="showDetail"){
-            (segue.destinationViewController as? TagDetailViewController)?.movieInfo=taggedMovie[0]
+            (segue.destinationViewController as? MovieDetailViewController)?.movieInfo=self.taggedMovie[0]
         }
-        
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    @IBAction func taggedPressed(sender: AnyObject) {
+        self.statusLabel.text = "Analyzing Audio..."
+        self.delay(5, closure: { () -> () in
+            self.performSegueWithIdentifier("showDetail", sender: nil)
+            self.statusLabel.text = ""
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func clickTag(){
-        self.performSegueWithIdentifier("showDetail", sender: nil)
+    
+    func addMovie(objectID: String){
         var user = PFUser.currentUser()
         var relation:PFRelation!
         var query = PFQuery(className:"Movies2")
-        query.getObjectInBackgroundWithId("R55D21xBrh") {
+        query.getObjectInBackgroundWithId(objectID) {
             (movie, error) -> Void in
             if error == nil && movie != nil {
                 println(movie)

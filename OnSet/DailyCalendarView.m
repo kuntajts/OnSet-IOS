@@ -93,6 +93,14 @@
     
     
 }
+-(void)colorText:(NSDate *)date
+{
+    
+    if(self.date==_date){
+        self.dateLabel.textColor=[UIColor blueColor];
+    }
+    
+}
 -(UIColor *)colorByDate
 {
     return [self.date isPastDate]?[UIColor colorWithHex:0x7BD1FF]:[UIColor whiteColor];

@@ -62,7 +62,7 @@ class CalendarViewController: UIViewController {
                     (success,error1) -> Void in
                     if(success){
                         println("saved")
-                        self.calendar?.markDateSelected(date)
+                        self.calendar?.colorDayLabel(date)
                     }else{
                         println("failed")
                         //self.calendar.
