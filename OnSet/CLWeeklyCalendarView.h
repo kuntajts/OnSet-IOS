@@ -31,7 +31,9 @@ extern NSString *const CLCalendarBackgroundImageColor;      //BackgroundImage co
 @property (nonatomic, strong) NSDate *selectedDate;
 
 - (void)redrawToDate: (NSDate *)dt;
-
+-(void)markDateSelected:(NSDate *)date;
 -(void)updateWeatherIconByKey: (NSString *)key;
+-(void)colorDayLabel:(NSDate *)date;
+
 
 @end

@@ -37,7 +37,7 @@
     if(!_dateLabelContainer){
         float x = (self.bounds.size.width - DATE_LABEL_SIZE)/2;
         _dateLabelContainer = [[UIView alloc] initWithFrame:CGRectMake(x, 0, DATE_LABEL_SIZE, DATE_LABEL_SIZE)];
-        _dateLabelContainer.backgroundColor = [UIColor clearColor];
+        _dateLabelContainer.backgroundColor = [UIColor greenColor];
         _dateLabelContainer.layer.cornerRadius = DATE_LABEL_SIZE/2;
         _dateLabelContainer.clipsToBounds = YES;
         [_dateLabelContainer addSubview:self.dateLabel];

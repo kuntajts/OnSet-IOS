@@ -15,30 +15,11 @@ class FavoritesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var user = PFUser.currentUser()
+        
         
         //adding test movie
-        /*
-        var query = PFQuery(className:"OMDBMovies")
-        query.getObjectInBackgroundWithId("ytwItAwx0c") {
-            (movie, error) -> Void in
-            if error == nil && movie != nil {
-                println(movie)
-                var relation = user!.relationForKey("tags")
-                relation.addObject(movie!)
-                user!.saveInBackgroundWithBlock({
-                    (success,error1) -> Void in
-                    if(success){
-                        println("saved")
-                    }else{
-                        println("failed")
-                    }
-                })
-            } else {
-                println(error)
-            }
-        }
-        */
+        
+        
         
         
     }
@@ -57,6 +38,7 @@ class FavoritesViewController: UITableViewController {
                 }
             }
         }
+        println(self.movies)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

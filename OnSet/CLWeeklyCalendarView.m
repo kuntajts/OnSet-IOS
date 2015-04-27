@@ -393,7 +393,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
     self.weatherIcon.image = [UIImage imageNamed:key];
     [self adjustDailyInfoLabelAndWeatherIcon:YES];
 }
-
+//-(void)
 #pragma DeputyDailyCalendarViewDelegate
 -(void)dailyCalendarViewDidSelect:(NSDate *)date
 {

@@ -19,13 +19,16 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel?
     @IBOutlet weak var plotTextView: UITextView?
     @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     var movieInfo: PFObject!
     
     func configureView() {
         getPosterImage()
         self.navigationItem.title = movieInfo["Title"] as? String
+        self.navigationController?.navigationItem.setRightBarButtonItem(backButton, animated: true)
         print(movieInfo)
+        
         titleLabel?.text = movieInfo["Title"] as? String
         directorLabel?.text = movieInfo["Director"] as? String
         releaseLabel?.text = movieInfo["Released"] as? String
@@ -52,6 +55,7 @@ class MovieDetailViewController: UIViewController {
         findTheatreButton!.layer.cornerRadius = 4.0
         watchTrailerButton!.clipsToBounds = true
         watchTrailerButton!.layer.cornerRadius = 4.0
+        
         self.configureView()
     }
     
