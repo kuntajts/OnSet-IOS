@@ -405,6 +405,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="tTj-CA-4fk" kind="show" identifier="showWebsite" id="E58-f3-wZp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-p7-TzN">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -642,6 +645,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVL-tf-nUb" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1449" y="-9"/>
+        </scene>
+        <!--Website View Controller-->
+        <scene sceneID="hGn-8p-Wga">
+            <objects>
+                <viewController id="tTj-CA-4fk" customClass="WebsiteViewController" customModule="OnSet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SFC-6J-qRi"/>
+                        <viewControllerLayoutGuide type="bottom" id="ITB-My-Ejk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yMB-XW-OYu">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ4-8A-rea">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="78" width="400" height="679"/>
+                                </variation>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuF-yx-GEq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="20" width="400" height="44"/>
+                                </variation>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ITB-My-Ejk" firstAttribute="top" secondItem="cJ4-8A-rea" secondAttribute="bottom" constant="8" symbolic="YES" id="7Qf-3H-d3I"/>
+                            <constraint firstAttribute="trailing" secondItem="cJ4-8A-rea" secondAttribute="trailing" id="Pjl-jH-1vT"/>
+                            <constraint firstItem="cJ4-8A-rea" firstAttribute="top" secondItem="SFC-6J-qRi" secondAttribute="bottom" id="Rkw-UU-WZZ"/>
+                            <constraint firstItem="cJ4-8A-rea" firstAttribute="leading" secondItem="yMB-XW-OYu" secondAttribute="leading" id="vOQ-W4-xTM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cJ4-8A-rea"/>
+                                <exclude reference="HuF-yx-GEq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Pjl-jH-1vT"/>
+                                <exclude reference="Rkw-UU-WZZ"/>
+                                <exclude reference="vOQ-W4-xTM"/>
+                                <exclude reference="7Qf-3H-d3I"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="cJ4-8A-rea"/>
+                                <include reference="HuF-yx-GEq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Pjl-jH-1vT"/>
+                                <include reference="Rkw-UU-WZZ"/>
+                                <include reference="vOQ-W4-xTM"/>
+                                <include reference="7Qf-3H-d3I"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="movieWebsite" destination="cJ4-8A-rea" id="gox-pE-4dz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Reu-Qz-f0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2224.5" y="468"/>
         </scene>
         <!--Tag A Movie-->
         <scene sceneID="kUN-i2-QQ8">

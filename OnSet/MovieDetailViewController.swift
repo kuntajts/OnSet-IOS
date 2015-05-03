@@ -65,10 +65,20 @@ class MovieDetailViewController: UIViewController {
         self.configureView()
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showWebsite" {
+            if let object:AnyObject = movieInfo {
+                
+                (segue.destinationViewController as? WebsiteViewController)!.movieInfo = object as? PFObject
+            }
+        }
+    }
+
     
     
 }

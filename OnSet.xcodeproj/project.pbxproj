@@ -33,6 +33,7 @@
 		0F8F8CEF1AD1F79C004093E2 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8F8CEE1AD1F79C004093E2 /* ParseFacebookUtils.framework */; };
 		0FDF075C1AD61B7B003F857C /* FavoritesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF075B1AD61B7B003F857C /* FavoritesViewCell.swift */; };
 		0FDF07641AD629C5003F857C /* InternalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF07631AD629C5003F857C /* InternalHelper.swift */; };
+		1AE5F8F11AF6CFAA0091593C /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F8F01AF6CFAA0091593C /* WebsiteViewController.swift */; };
 		1AE997631AE985510071C197 /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997621AE985510071C197 /* CLWeeklyCalendarView.m */; };
 		1AE997671AE9858C0071C197 /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997661AE9858C0071C197 /* DailyCalendarView.m */; };
 		1AE9976A1AE9859F0071C197 /* DayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997691AE9859F0071C197 /* DayTitleLabel.m */; };
@@ -89,6 +90,7 @@
 		0F8F8CEE1AD1F79C004093E2 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		0FDF075B1AD61B7B003F857C /* FavoritesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewCell.swift; sourceTree = "<group>"; };
 		0FDF07631AD629C5003F857C /* InternalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalHelper.swift; sourceTree = "<group>"; };
+		1AE5F8F01AF6CFAA0091593C /* WebsiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
 		1AE997621AE985510071C197 /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
 		1AE997641AE985720071C197 /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
 		1AE997651AE9857E0071C197 /* DailyCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyCalendarView.h; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				5637EC231ABF609B003997B8 /* Main.storyboard */,
 				1AEE17861AEDE2D600ACD67D /* TagDetailViewController.swift */,
 				0F8F8CC31AD1C421004093E2 /* MainViewController.swift */,
+				1AE5F8F01AF6CFAA0091593C /* WebsiteViewController.swift */,
 				5637EC261ABF609C003997B8 /* Images.xcassets */,
 				5637EC281ABF609C003997B8 /* LaunchScreen.xib */,
 				5637EC1B1ABF609B003997B8 /* Supporting Files */,
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AE997751AE985B30071C197 /* NSDictionary+CL.m in Sources */,
+				1AE5F8F11AF6CFAA0091593C /* WebsiteViewController.swift in Sources */,
 				1AE997631AE985510071C197 /* CLWeeklyCalendarView.m in Sources */,
 				0F8F8CC41AD1C421004093E2 /* MainViewController.swift in Sources */,
 				1AE997671AE9858C0071C197 /* DailyCalendarView.m in Sources */,
