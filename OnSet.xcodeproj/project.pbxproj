@@ -33,6 +33,9 @@
 		0F8F8CEF1AD1F79C004093E2 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8F8CEE1AD1F79C004093E2 /* ParseFacebookUtils.framework */; };
 		0FDF075C1AD61B7B003F857C /* FavoritesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF075B1AD61B7B003F857C /* FavoritesViewCell.swift */; };
 		0FDF07641AD629C5003F857C /* InternalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF07631AD629C5003F857C /* InternalHelper.swift */; };
+		1AAC54E91AFAB17C00BF3FB5 /* TheatreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC54E81AFAB17C00BF3FB5 /* TheatreViewController.swift */; };
+		1AAC54EB1AFAB69100BF3FB5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC54EA1AFAB69100BF3FB5 /* AVFoundation.framework */; };
+		1AAC54F91AFABF8C00BF3FB5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAC54F81AFABF8C00BF3FB5 /* libstdc++.dylib */; };
 		1AE5F8F11AF6CFAA0091593C /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5F8F01AF6CFAA0091593C /* WebsiteViewController.swift */; };
 		1AE997631AE985510071C197 /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997621AE985510071C197 /* CLWeeklyCalendarView.m */; };
 		1AE997671AE9858C0071C197 /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997661AE9858C0071C197 /* DailyCalendarView.m */; };
@@ -41,7 +44,13 @@
 		1AE997751AE985B30071C197 /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9976F1AE985B30071C197 /* NSDictionary+CL.m */; };
 		1AE997761AE985B30071C197 /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997711AE985B30071C197 /* UIColor+CL.m */; };
 		1AE997771AE985B30071C197 /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE997731AE985B30071C197 /* UIImage+CL.m */; };
-		1AEE17871AEDE2D600ACD67D /* TagDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE17861AEDE2D600ACD67D /* TagDetailViewController.swift */; };
+		1AEB5A851AFAACF700FB6758 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEB5A841AFAACF700FB6758 /* CoreData.framework */; };
+		1AEB5A8C1AFAAD7500FB6758 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEB5A861AFAAD7500FB6758 /* CoreText.framework */; };
+		1AEB5A8D1AFAAD7500FB6758 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEB5A871AFAAD7500FB6758 /* GLKit.framework */; };
+		1AEB5A8E1AFAAD7500FB6758 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEB5A881AFAAD7500FB6758 /* ImageIO.framework */; };
+		1AEB5A8F1AFAAD7500FB6758 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEB5A891AFAAD7500FB6758 /* libc++.dylib */; };
+		1AEB5A901AFAAD7500FB6758 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEB5A8A1AFAAD7500FB6758 /* libicucore.dylib */; };
+		1AEB5A911AFAAD7500FB6758 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEB5A8B1AFAAD7500FB6758 /* OpenGLES.framework */; };
 		5637EC1E1ABF609B003997B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC1D1ABF609B003997B8 /* AppDelegate.swift */; };
 		5637EC201ABF609B003997B8 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC1F1ABF609B003997B8 /* FavoritesViewController.swift */; };
 		5637EC221ABF609B003997B8 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5637EC211ABF609B003997B8 /* SocialViewController.swift */; };
@@ -90,6 +99,9 @@
 		0F8F8CEE1AD1F79C004093E2 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		0FDF075B1AD61B7B003F857C /* FavoritesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewCell.swift; sourceTree = "<group>"; };
 		0FDF07631AD629C5003F857C /* InternalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalHelper.swift; sourceTree = "<group>"; };
+		1AAC54E81AFAB17C00BF3FB5 /* TheatreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheatreViewController.swift; sourceTree = "<group>"; };
+		1AAC54EA1AFAB69100BF3FB5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1AAC54F81AFABF8C00BF3FB5 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		1AE5F8F01AF6CFAA0091593C /* WebsiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
 		1AE997621AE985510071C197 /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
 		1AE997641AE985720071C197 /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
@@ -105,7 +117,13 @@
 		1AE997711AE985B30071C197 /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
 		1AE997721AE985B30071C197 /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
 		1AE997731AE985B30071C197 /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
-		1AEE17861AEDE2D600ACD67D /* TagDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDetailViewController.swift; sourceTree = "<group>"; };
+		1AEB5A841AFAACF700FB6758 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1AEB5A861AFAAD7500FB6758 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		1AEB5A871AFAAD7500FB6758 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		1AEB5A881AFAAD7500FB6758 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		1AEB5A891AFAAD7500FB6758 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		1AEB5A8A1AFAAD7500FB6758 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		1AEB5A8B1AFAAD7500FB6758 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		5637EC181ABF609B003997B8 /* OnSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5637EC1C1ABF609B003997B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5637EC1D1ABF609B003997B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +145,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAC54F91AFABF8C00BF3FB5 /* libstdc++.dylib in Frameworks */,
+				1AAC54EB1AFAB69100BF3FB5 /* AVFoundation.framework in Frameworks */,
+				1AEB5A8C1AFAAD7500FB6758 /* CoreText.framework in Frameworks */,
+				1AEB5A8D1AFAAD7500FB6758 /* GLKit.framework in Frameworks */,
+				1AEB5A8E1AFAAD7500FB6758 /* ImageIO.framework in Frameworks */,
+				1AEB5A8F1AFAAD7500FB6758 /* libc++.dylib in Frameworks */,
+				1AEB5A901AFAAD7500FB6758 /* libicucore.dylib in Frameworks */,
+				1AEB5A911AFAAD7500FB6758 /* OpenGLES.framework in Frameworks */,
+				0F791B531ACD84B500930B52 /* CoreLocation.framework in Frameworks */,
+				0F791B551ACD84B500930B52 /* libz.dylib in Frameworks */,
+				0F791B571ACD84B500930B52 /* QuartzCore.framework in Frameworks */,
+				0F791B5A1ACD84B500930B52 /* SystemConfiguration.framework in Frameworks */,
+				1AEB5A851AFAACF700FB6758 /* CoreData.framework in Frameworks */,
 				0F791B581ACD84B500930B52 /* Security.framework in Frameworks */,
 				0F8F8CEC1AD1F57F004093E2 /* ParseUI.framework in Frameworks */,
 				0F8F8CE11AD1F34D004093E2 /* UIKit.framework in Frameworks */,
@@ -140,14 +171,10 @@
 				0F8F8CE91AD1F57F004093E2 /* ParseCrashReporting.framework in Frameworks */,
 				0F791B511ACD84B500930B52 /* CFNetwork.framework in Frameworks */,
 				0F791B521ACD84B500930B52 /* CoreGraphics.framework in Frameworks */,
-				0F791B531ACD84B500930B52 /* CoreLocation.framework in Frameworks */,
 				0F791B541ACD84B500930B52 /* libsqlite3.dylib in Frameworks */,
-				0F791B551ACD84B500930B52 /* libz.dylib in Frameworks */,
 				0F791B561ACD84B500930B52 /* MobileCoreServices.framework in Frameworks */,
-				0F791B571ACD84B500930B52 /* QuartzCore.framework in Frameworks */,
 				0F8DEF6C1AD1FC1D0007330A /* FacebookSDK.framework in Frameworks */,
 				0F791B591ACD84B500930B52 /* StoreKit.framework in Frameworks */,
-				0F791B5A1ACD84B500930B52 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +191,15 @@
 		0F791B671ACD851400930B52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AAC54F81AFABF8C00BF3FB5 /* libstdc++.dylib */,
+				1AAC54EA1AFAB69100BF3FB5 /* AVFoundation.framework */,
+				1AEB5A861AFAAD7500FB6758 /* CoreText.framework */,
+				1AEB5A871AFAAD7500FB6758 /* GLKit.framework */,
+				1AEB5A881AFAAD7500FB6758 /* ImageIO.framework */,
+				1AEB5A891AFAAD7500FB6758 /* libc++.dylib */,
+				1AEB5A8A1AFAAD7500FB6758 /* libicucore.dylib */,
+				1AEB5A8B1AFAAD7500FB6758 /* OpenGLES.framework */,
+				1AEB5A841AFAACF700FB6758 /* CoreData.framework */,
 				0F8DEF6B1AD1FC1D0007330A /* FacebookSDK.framework */,
 				0F8F8CEE1AD1F79C004093E2 /* ParseFacebookUtils.framework */,
 				0F8F8CE21AD1F57F004093E2 /* Bolts.framework */,
@@ -244,7 +280,7 @@
 				5637EC411ABF649B003997B8 /* CalendarViewController.swift */,
 				5637EC431ABF6613003997B8 /* ProfileViewController.swift */,
 				5637EC231ABF609B003997B8 /* Main.storyboard */,
-				1AEE17861AEDE2D600ACD67D /* TagDetailViewController.swift */,
+				1AAC54E81AFAB17C00BF3FB5 /* TheatreViewController.swift */,
 				0F8F8CC31AD1C421004093E2 /* MainViewController.swift */,
 				1AE5F8F01AF6CFAA0091593C /* WebsiteViewController.swift */,
 				5637EC261ABF609C003997B8 /* Images.xcassets */,
@@ -381,6 +417,7 @@
 			files = (
 				1AE997751AE985B30071C197 /* NSDictionary+CL.m in Sources */,
 				1AE5F8F11AF6CFAA0091593C /* WebsiteViewController.swift in Sources */,
+				1AAC54E91AFAB17C00BF3FB5 /* TheatreViewController.swift in Sources */,
 				1AE997631AE985510071C197 /* CLWeeklyCalendarView.m in Sources */,
 				0F8F8CC41AD1C421004093E2 /* MainViewController.swift in Sources */,
 				1AE997671AE9858C0071C197 /* DailyCalendarView.m in Sources */,
@@ -394,7 +431,6 @@
 				5637EC401ABF63D5003997B8 /* TagViewController.swift in Sources */,
 				1AE9976A1AE9859F0071C197 /* DayTitleLabel.m in Sources */,
 				5637EC1E1ABF609B003997B8 /* AppDelegate.swift in Sources */,
-				1AEE17871AEDE2D600ACD67D /* TagDetailViewController.swift in Sources */,
 				5637EC201ABF609B003997B8 /* FavoritesViewController.swift in Sources */,
 				1AE997761AE985B30071C197 /* UIColor+CL.m in Sources */,
 				1AE997741AE985B30071C197 /* NSDate+CL.m in Sources */,
@@ -523,14 +559,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/lab/Desktop/facebook-ios-sdk/build",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(SDKROOT)/Developer/Library/Frameworks",
 					"./**",
 				);
 				INFOPLIST_FILE = OnSet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnSet/Bridge-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -541,14 +580,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/lab/Desktop/facebook-ios-sdk/build",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(SDKROOT)/Developer/Library/Frameworks",
 					"./**",
 				);
 				INFOPLIST_FILE = OnSet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnSet/Bridge-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -12,18 +12,48 @@ import Parse
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor(patternImage: UIImage(named:"background")!)
         // Do any additional setup after loading the view.
     
     }
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func viewDidAppear(animated: Bool) {
         var user = PFUser.currentUser()
         var usernameData: AnyObject? = user!["username"]
         usernameLabel.text = usernameData as? String
     }
-
+    
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     @IBAction func logoutClicked(sender: UIButton) {
         PFUser.logOut()
         var currentUser = PFUser.currentUser()
@@ -32,6 +62,15 @@ class ProfileViewController: UIViewController {
         mainViewController!.setUpLogin()
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

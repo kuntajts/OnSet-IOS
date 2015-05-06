@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         Parse.setApplicationId("xLXRUEJNcjcNlt7FxTCAgAGSx9oecyzBgSelLePA", clientKey: "BOH5WjIXsky4478kcDAmN76bPNtllghKYtG76kLQ")
         PFFacebookUtils.initializeFacebook()
-        
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         /*var testObject:PFObject = PFObject(className: "TestObject")
         testObject["Foo"] = "bar"

@@ -18,6 +18,15 @@ class TagViewController: UIViewController {
     var taggedMovie:[PFObject!]=[]
     var movie:PFObject!
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -52,6 +61,16 @@ class TagViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var recorder:AVAudioRecorder
         var duration:NSTimeInterval
@@ -68,6 +87,15 @@ class TagViewController: UIViewController {
         }
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
@@ -77,6 +105,15 @@ class TagViewController: UIViewController {
             dispatch_get_main_queue(), closure)
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     @IBAction func taggedPressed(sender: AnyObject) {
         
         var movieTitle=searchBar.text
@@ -93,6 +130,15 @@ class TagViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func addMovie(objectID: String){
         var user = PFUser.currentUser()
         var relation:PFRelation!

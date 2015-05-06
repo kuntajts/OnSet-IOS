@@ -12,6 +12,16 @@ class WebsiteViewController: UIViewController{
     @IBOutlet weak var movieWebsite: UIWebView!
     
     var movieInfo:PFObject!
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title=movieInfo["Title"] as? String
@@ -24,6 +34,16 @@ class WebsiteViewController: UIViewController{
         let request = NSURLRequest(URL: url!)
         movieWebsite.loadRequest(request)
     }
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

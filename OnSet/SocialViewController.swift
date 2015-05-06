@@ -13,6 +13,17 @@ import Accounts
 class SocialViewController: UIViewController {
     @IBOutlet weak var socialTable: UITableView!
     var dataSource = [AnyObject]()
+    
+    /******************************************************
+    * Author: Kal Popzlatev
+    * Function: viewDidLoad
+    * Description: programatically creates a table view
+    *              calls self.getTimeLine()
+    * Param: -
+    * Return: -
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         self.socialTable.registerClass(UITableViewCell.self,
@@ -21,15 +32,43 @@ class SocialViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell =
@@ -42,6 +81,15 @@ class SocialViewController: UIViewController {
         return cell
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func getTimeLine() {
         
         let account = ACAccountStore()
@@ -61,7 +109,7 @@ class SocialViewController: UIViewController {
                         let requestURL = NSURL(string:
                             "https://api.twitter.com/1.1/statuses/user_timeline.json")
                         
-                        let parameters = ["screen_name" : "@wbpictures",
+                        let parameters = ["screen_name" : "@ParamountPics",
                             "include_rts" : "0",
                             "trim_user" : "1",
                             "count" : "50"]

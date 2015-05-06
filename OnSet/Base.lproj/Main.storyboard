@@ -421,6 +421,9 @@
                                 <state key="normal" title="Find Theatre">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="mrr-u7-rZU" kind="show" id="Vc2-mn-vAq"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-dk-f7j">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -785,21 +788,34 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-zw-b6v">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="vS3-ya-uD1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="152" y="64" width="97" height="30"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="vS3-ya-uD1"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="39" y="58" width="325" height="30"/>
+                                    <mask key="constraints">
+                                        <include reference="vS3-ya-uD1"/>
+                                    </mask>
                                 </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="AYy-zw-b6v" firstAttribute="top" secondItem="Yph-aS-a45" secondAttribute="bottom" id="5rM-yH-FEl"/>
                             <constraint firstItem="U2o-bn-gTY" firstAttribute="leading" secondItem="OHj-Rz-f6L" secondAttribute="leadingMargin" constant="73" id="BZP-0D-kf8"/>
                             <constraint firstItem="U2o-bn-gTY" firstAttribute="top" secondItem="Yph-aS-a45" secondAttribute="bottom" constant="74" id="Dv6-qs-Bh1"/>
                             <constraint firstItem="05x-iD-uTB" firstAttribute="centerX" secondItem="dY4-0p-Ld2" secondAttribute="centerX" id="G7n-I2-HeY"/>
                             <constraint firstItem="05x-iD-uTB" firstAttribute="top" secondItem="dY4-0p-Ld2" secondAttribute="bottom" constant="90" id="LjC-0y-bxG"/>
                             <constraint firstItem="wia-qD-l42" firstAttribute="top" secondItem="05x-iD-uTB" secondAttribute="bottom" constant="8" id="V4d-3d-bd2"/>
                             <constraint firstAttribute="centerX" secondItem="dY4-0p-Ld2" secondAttribute="centerX" id="ZAd-5b-qQj"/>
+                            <constraint firstItem="AYy-zw-b6v" firstAttribute="centerX" secondItem="dY4-0p-Ld2" secondAttribute="centerX" id="c7P-Jp-JmB"/>
                             <constraint firstAttribute="centerY" secondItem="dY4-0p-Ld2" secondAttribute="centerY" id="e8J-tP-EGX"/>
                             <constraint firstItem="U2o-bn-gTY" firstAttribute="centerX" secondItem="dY4-0p-Ld2" secondAttribute="centerX" id="hku-8f-fsb"/>
                             <constraint firstItem="dY4-0p-Ld2" firstAttribute="top" secondItem="U2o-bn-gTY" secondAttribute="bottom" constant="55" id="pQo-Yo-I6d"/>
@@ -810,11 +826,17 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="BZP-0D-kf8"/>
+                                <exclude reference="5rM-yH-FEl"/>
+                                <exclude reference="c7P-Jp-JmB"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="AYy-zw-b6v"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5rM-yH-FEl"/>
+                                <include reference="c7P-Jp-JmB"/>
                             </mask>
                         </variation>
                     </view>
@@ -828,7 +850,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDb-RV-qjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605" y="1432"/>
+            <point key="canvasLocation" x="604.5" y="1431.75"/>
+        </scene>
+        <!--Find Theatre-->
+        <scene sceneID="2En-OT-mCs">
+            <objects>
+                <viewController id="mrr-u7-rZU" customClass="TheatreViewController" customModule="OnSet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Ro-xZ-0vE"/>
+                        <viewControllerLayoutGuide type="bottom" id="puu-kO-ikl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hrk-lZ-eJg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jql-Xw-oBb">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="687"/>
+                                </variation>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" label="Theatre Location"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Jql-Xw-oBb"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Jql-Xw-oBb"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Find Theatre" id="ilw-dj-CRc"/>
+                    <connections>
+                        <outlet property="googleMap" destination="Jql-Xw-oBb" id="hy0-WM-ufR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDO-iY-ftC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="663.75"/>
         </scene>
     </scenes>
     <resources>
@@ -840,6 +904,6 @@
         <image name="tagButton" width="1273" height="1216"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u3L-iU-rJL"/>
+        <segue reference="eQX-Uu-4uR"/>
     </inferredMetricsTieBreakers>
 </document>

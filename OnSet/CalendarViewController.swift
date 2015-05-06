@@ -15,6 +15,16 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     var movies:[PFObject] = []
     
     @IBOutlet weak var calendarTable: UITableView!
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func viewDidLoad() {
         //var calendar:CLWeeklyCalendarView
         super.viewDidLoad()
@@ -45,21 +55,68 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
     }
 
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func viewDidAppear(animated: Bool) {
         //updateReleaseDates()
     }
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:FavoritesViewCell = (tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as?
             FavoritesViewCell)!
@@ -79,6 +136,16 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         })
         return cell
     }
+    
+    /******************************************************
+    * Author:
+    * Function:
+    * Description:
+    * Param:
+    * Return:
+    * Properties modified:
+    * Precondition:
+    *******************************************************/
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         var dateFinal:NSDate
         let dateFormatter = NSDateFormatter()

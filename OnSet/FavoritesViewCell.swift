@@ -13,6 +13,15 @@ class FavoritesViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImage: UIImageView! = UIImageView()
     @IBOutlet weak var releaseDate: UILabel!
 
+    /******************************************************
+    * Author: Charlie Woodward
+    * Function: awakeFromNib
+    * Description: Customizes the image views for each poster
+    * Param: -
+    * Return: -
+    * Properties modified: thumbnailImage
+    * Precondition: -
+    *******************************************************/
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +29,15 @@ class FavoritesViewCell: UITableViewCell {
         thumbnailImage.layer.cornerRadius = 4.0
     }
 
+    /******************************************************
+    * Author: Charlie Woodward
+    * Function: setSelected
+    * Description: animates user selection
+    * Param: Bool:selected ; Bool:animated
+    * Return: -
+    * Properties modified: -
+    * Precondition:
+    *******************************************************/
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
