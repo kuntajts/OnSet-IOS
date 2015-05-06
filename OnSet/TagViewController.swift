@@ -12,9 +12,11 @@ import Parse
 
 class TagViewController: UIViewController {
     @IBOutlet weak var tagButton:UIButton!
+    @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var statusLabel: UILabel!
     var audioRecorder:AVAudioRecorder?
     var taggedMovie:[PFObject!]=[]
+    var movie:PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +37,9 @@ class TagViewController: UIViewController {
         var error:NSError?
         audioRecorder = AVAudioRecorder(URL: soundFileURL,
             settings: recordSettings as [NSObject : AnyObject], error: &error)
-        
         var user=PFUser.currentUser()
         var relation=user?.relationForKey("tags")
+        
         relation!.query()!.findObjectsInBackgroundWithBlock{
             (objects, error) -> Void in
             if error != nil{
@@ -62,7 +64,7 @@ class TagViewController: UIViewController {
         addMovie("W1ZB1uD9YS")
         addMovie("7uF16sZ5bt")*/
         if(segue.identifier=="showDetail"){
-            (segue.destinationViewController as? MovieDetailViewController)?.movieInfo=self.taggedMovie[0]
+            (segue.destinationViewController as? MovieDetailViewController)?.movieInfo=self.movie
         }
     }
     
@@ -76,6 +78,10 @@ class TagViewController: UIViewController {
     }
     
     @IBAction func taggedPressed(sender: AnyObject) {
+        
+        var movieTitle=searchBar.text
+        self.addMovie(movieTitle)
+        
         self.statusLabel.text = "Analyzing Audio..."
         self.delay(5, closure: { () -> () in
             self.performSegueWithIdentifier("showDetail", sender: nil)
@@ -91,12 +97,16 @@ class TagViewController: UIViewController {
         var user = PFUser.currentUser()
         var relation:PFRelation!
         var query = PFQuery(className:"Movies2")
-        query.getObjectInBackgroundWithId(objectID) {
+        query.whereKey("Title", equalTo: objectID)
+        query.findObjectsInBackgroundWithBlock{
             (movie, error) -> Void in
             if error == nil && movie != nil {
                 println(movie)
                 relation = user?.relationForKey("tags")
-                relation.addObject(movie!)
+                if let object: AnyObject=movie!.first {
+                    self.movie=object as! PFObject
+                    relation.addObject(object as! PFObject)
+                }
                 user!.saveInBackgroundWithBlock({
                     (success,error1) -> Void in
                     if(success){

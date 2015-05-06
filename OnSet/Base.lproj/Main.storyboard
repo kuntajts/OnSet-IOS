@@ -655,14 +655,12 @@
                         <viewControllerLayoutGuide type="bottom" id="ITB-My-Ejk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yMB-XW-OYu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ4-8A-rea">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="78" width="400" height="679"/>
-                                </variation>
                             </webView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuF-yx-GEq">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -689,10 +687,10 @@
                                 <exclude reference="HuF-yx-GEq"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="7Qf-3H-d3I"/>
                                 <exclude reference="Pjl-jH-1vT"/>
                                 <exclude reference="Rkw-UU-WZZ"/>
                                 <exclude reference="vOQ-W4-xTM"/>
-                                <exclude reference="7Qf-3H-d3I"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -701,10 +699,10 @@
                                 <include reference="HuF-yx-GEq"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="7Qf-3H-d3I"/>
                                 <include reference="Pjl-jH-1vT"/>
                                 <include reference="Rkw-UU-WZZ"/>
                                 <include reference="vOQ-W4-xTM"/>
-                                <include reference="7Qf-3H-d3I"/>
                             </mask>
                         </variation>
                     </view>
@@ -785,6 +783,14 @@
                                     <rect key="frame" x="-11" y="74" width="424" height="139"/>
                                 </variation>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-zw-b6v">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="152" y="64" width="97" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -799,13 +805,22 @@
                             <constraint firstItem="dY4-0p-Ld2" firstAttribute="top" secondItem="U2o-bn-gTY" secondAttribute="bottom" constant="55" id="pQo-Yo-I6d"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="AYy-zw-b6v"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="BZP-0D-kf8"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="AYy-zw-b6v"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Tag a Movie" id="A8K-SU-5Bo"/>
                     <connections>
+                        <outlet property="searchBar" destination="AYy-zw-b6v" id="8c4-1g-3Ng"/>
                         <outlet property="statusLabel" destination="05x-iD-uTB" id="pUy-nk-icY"/>
                         <outlet property="tagButton" destination="dY4-0p-Ld2" id="run-JI-Fc0"/>
                         <segue destination="voX-4r-S5M" kind="show" identifier="showDetail" id="eQX-Uu-4uR"/>
