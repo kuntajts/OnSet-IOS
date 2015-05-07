@@ -46,6 +46,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }
         }
+        self.calendarTable.reloadData()
         println(self.movies)
 
         //self.updateReleaseDates()
@@ -55,6 +56,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // Do any additional setup after loading the view.
     }
+    
 
     /******************************************************
     * Author: Kal Popzlatev
@@ -67,6 +69,18 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     *******************************************************/
     override func viewDidAppear(animated: Bool) {
         //updateReleaseDates()
+        if let user=PFUser.currentUser(){
+            var relation = user.relationForKey("tags")
+            relation.query()!.findObjectsInBackgroundWithBlock{
+                (objects, error) -> Void in
+                if error != nil{
+                    println(error)
+                }else{
+                    self.movies = (objects as? [PFObject])!
+                    self.calendarTable.reloadData()
+                }
+            }
+        }
     }
     
 

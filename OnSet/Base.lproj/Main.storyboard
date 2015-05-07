@@ -798,8 +798,7 @@
                                         <exclude reference="vS3-ya-uD1"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="39" y="58" width="325" height="30"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="vS3-ya-uD1"/>
                                     </mask>
@@ -825,9 +824,9 @@
                                 <exclude reference="AYy-zw-b6v"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BZP-0D-kf8"/>
                                 <exclude reference="5rM-yH-FEl"/>
                                 <exclude reference="c7P-Jp-JmB"/>
+                                <exclude reference="BZP-0D-kf8"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
