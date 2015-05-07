@@ -14,7 +14,6 @@ class TheatreViewController: UIViewController {
     var locationManager:CLLocationManager = CLLocationManager()
     var link:String="https://www.google.com/maps/search/movie+theater+near+Ithaca,+NY/@42.4422877,-76.4983749,13z/data=!3m1!4b1"
     override func viewDidLoad() {
-        super.viewDidLoad()
         
         super.viewDidLoad()
 

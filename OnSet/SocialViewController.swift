@@ -12,7 +12,7 @@ import Accounts
 
 class SocialViewController: UIViewController {
     @IBOutlet weak var socialTable: UITableView!
-    var dataSource = [AnyObject]()
+    var dataSource = [AnyObject]()                  //twitter feed
     
     /******************************************************
     * Author: Kal Popzlatev
@@ -21,8 +21,8 @@ class SocialViewController: UIViewController {
     *              calls self.getTimeLine()
     * Param: -
     * Return: -
-    * Properties modified:
-    * Precondition:
+    * Properties modified: adds tableView to the view controller
+    * Precondition: -
     *******************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,28 +32,21 @@ class SocialViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
-    *******************************************************/
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function: tableView
+    * Description: initializes correct number of rows according
+    *              to the length of the twitter feed (dataSource)
+    * Param:    UITableView, numberOfRowsInSection
+    * Return: dataSource.count
+    * Properties modified: -
+    * Precondition: dataSource is not nil
     *******************************************************/
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -61,13 +54,14 @@ class SocialViewController: UIViewController {
     
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function: tableView
+    * Description: populates cells with information from dataSource
+    *              which is holding twitter posts
+    * Param: UITableView; cellForRowAtIndexPath
+    * Return: cell
+    * Properties modified: cell, socialTable
+    * Precondition: -
     *******************************************************/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -82,13 +76,14 @@ class SocialViewController: UIViewController {
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function: getTimeLine
+    * Description: gets access to the account currently logged on Twitter
+    *              on the device and requests the latest 50 tweets from Paramount Pictures
+    * Param: -
+    * Return: -
+    * Properties modified: dataSource
+    * Precondition: the user needs to be logged into twitter on the device
     *******************************************************/
     func getTimeLine() {
         
@@ -108,21 +103,21 @@ class SocialViewController: UIViewController {
                         
                         let requestURL = NSURL(string:
                             "https://api.twitter.com/1.1/statuses/user_timeline.json")
-                        
+    // URL used in the request is intended to return the entries in the time line for a specific user’s Twitter account
                         let parameters = ["screen_name" : "@ParamountPics",
                             "include_rts" : "0",
                             "trim_user" : "1",
                             "count" : "50"]
-                        
+                        //get latest 50 tweets posted by paramount pictures
                         let postRequest = SLRequest(forServiceType:
                             SLServiceTypeTwitter,
                             requestMethod: SLRequestMethod.GET,
                             URL: requestURL,
                             parameters: parameters)
-                        
+                    
                         postRequest.account = twitterAccount
                         
-                        postRequest.performRequestWithHandler(
+                        postRequest.performRequestWithHandler(              //HTTP request
                             {(responseData: NSData!,
                                 urlResponse: NSHTTPURLResponse!,
                                 error: NSError!) -> Void in
@@ -130,8 +125,8 @@ class SocialViewController: UIViewController {
                                 self.dataSource = NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableLeaves, error: &err) as! [AnyObject]
                                 
                                 if self.dataSource.count != 0 {
-                                    dispatch_async(dispatch_get_main_queue()) {
-                                        self.socialTable.reloadData()
+                                    dispatch_async(dispatch_get_main_queue()) { //separate thread to populate
+                                        self.socialTable.reloadData()           //socialTable (tableView)
                                     }
                                 }
                         })

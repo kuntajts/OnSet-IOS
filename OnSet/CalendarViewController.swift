@@ -17,13 +17,14 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var calendarTable: UITableView!
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function: viewDidLoad
+    * Description: Initializes CLWeeklyCalendar and programatically adds a view for it; gets data from Parse
+    *              and puts it in self.movies which is used to populate a table view
+    * Param: -
+    * Return: -
+    * Properties modified: self.movies; calendarTable;
+    * Precondition: -
     *******************************************************/
     override func viewDidLoad() {
         //var calendar:CLWeeklyCalendarView
@@ -56,65 +57,57 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function: viewDidAppear
+    * Description: animates view
+    * Param: Bool: animated
+    * Return: -
+    * Properties modified: self.view
+    * Precondition: -
     *******************************************************/
     override func viewDidAppear(animated: Bool) {
         //updateReleaseDates()
     }
     
-    /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
-    *******************************************************/
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function: numberOfSectionsInTableView
+    * Description: the table view is initialized with 1 section
+    * Param: tableView
+    * Return: 1
+    * Properties modified: -
+    * Precondition: -
     *******************************************************/
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function:tableView
+    * Description:initializes a tableView with as many rows as tagged movies by the current user
+    * Param: tableView, numberOfRowsInSection
+    * Return: movies.count
+    * Properties modified: -
+    * Precondition: -
     *******************************************************/
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
+    * Author: Kal Popzlatev
+    * Function: tableView
+    * Description: populates table cells with poster image and a title for each movie
+    * Param: tableView, indexPath
+    * Return: cell
+    * Properties modified: cell.releaseDate (label); cell.movieTitle (label); cell.thumbNailImage
     * Precondition:
     *******************************************************/
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -129,8 +122,8 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.movieTitle.text = object["Title"] as? String
         
         var poster:AnyObject?=object["Poster"]
-        let url:NSURL = NSURL(string: (poster as? String)!)!
-        InternalHelper.downloadImage(url, handler: {
+        let url:NSURL = NSURL(string: (poster as? String)!)!    //uses internalhelper to download image in a
+        InternalHelper.downloadImage(url, handler: {            //separate thread
             (image, error:NSError!) -> Void in
             cell.thumbnailImage.image = image
         })
@@ -138,13 +131,14 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Kal Popzlatev
+    * Function: tableView
+    * Description: connects tableview to calendar. Once a row is selected the release date is indicated
+    *              on the calendar view
+    * Param: tableView, indexPath
+    * Return: -
+    * Properties modified: calendar's indicator tile
+    * Precondition: -
     *******************************************************/
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         var dateFinal:NSDate

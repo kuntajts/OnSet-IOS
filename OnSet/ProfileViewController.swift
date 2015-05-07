@@ -14,13 +14,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Charlie Woodward
+    * Function: viewDidLoad
+    * Description: changes background image;
+    * Param:-
+    * Return:-
+    * Properties modified:-
+    * Precondition:-
     *******************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,8 @@ class ProfileViewController: UIViewController {
     }
     
     /******************************************************
-    * Author:
-    * Function:
+    * Author: Charlie Woodward
+    * Function: viewDidAppear
     * Description:
     * Param:
     * Return:
