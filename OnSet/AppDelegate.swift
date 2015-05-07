@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //enables Parse
         Parse.enableLocalDatastore()
-        Parse.setApplicationId("xLXRUEJNcjcNlt7FxTCAgAGSx9oecyzBgSelLePA", clientKey: "BOH5WjIXsky4478kcDAmN76bPNtllghKYtG76kLQ")
+        Parse.setApplicationId("xLXRUEJNcjcNlt7FxTCAgAGSx9oecyzBgSelLePA", clientKey:  "BOH5WjIXsky4478kcDAmN76bPNtllghKYtG76kLQ")
+        //enables Parse with Facebook
         PFFacebookUtils.initializeFacebook()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         /*var testObject:PFObject = PFObject(className: "TestObject")

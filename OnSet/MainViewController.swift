@@ -14,15 +14,7 @@ import ParseUI
 class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     var logoView=UIImageView(image: UIImage(named:"logo"))
     
-    /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
-    *******************************************************/
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //logoView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -31,27 +23,19 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
-    *******************************************************/
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Jordan Smith
+    * Function: viewDidAppear
+    * Description: callse setUpLogin which brings up the login screen created by Parse
+    * Param: Bool: animated
+    * Return: -
+    * Properties modified: -
+    * Precondition: -
     *******************************************************/
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -59,11 +43,11 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
+    * Author: Jordan Smith
+    * Function: logInViewController
+    * Description: instantiates parse login view
+    * Param: PFLogInViewController, String: username, String: password
+    * Return: true if strings are nill; false otherwise
     * Properties modified:
     * Precondition:
     *******************************************************/
@@ -79,26 +63,26 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
     }
    
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Jordan Smith
+    * Function: logInViewController
+    * Description: closes login view from parse
+    * Param: PFLoginViewController, user
+    * Return: -
+    * Properties modified: login view hidden
+    * Precondition: user logged in
     *******************************************************/
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Jordan Smith
+    * Function: signUpViewController
+    * Description: dismisses login view controller if user signs up
+    * Param: PFSignUpViewController, user
+    * Return: -
+    * Properties modified: sign up view is closed
+    * Precondition: user signed up
     *******************************************************/
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
 
@@ -106,52 +90,52 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Jordan Smith
+    * Function: logInViewController
+    * Description: If an error occured while loging in displays failed to login to the console
+    * Param: PFLoginViewController, error
+    * Return: -
+    * Properties modified: -
+    * Precondition: failed login
     *******************************************************/
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
         println("Failed to login...")
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
+    * Author: Jordan Smith
+    * Function: signUpViewController
+    * Description: If an error occured while signing up displays error message to the console
+    * Param: PFSignUpViewController, error
+    * Return: -
     * Properties modified:
-    * Precondition:
+    * Precondition: failed to sign up
     *******************************************************/
     func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
         println("Failed to sign up...")
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Jordan Smith
+    * Function: signUpViewControllerDidCancelSignUp
+    * Description: displays message to the console if user cancels sign up
+    * Param: PFSignUpViewController
+    * Return: -
+    * Properties modified: -
+    * Precondition: -
     *******************************************************/
     func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController) {
         println("User dismissed sign up.")
     }
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Jordan Smith
+    * Function: setUpLogin
+    * Description: initializes fields in login view controller and sign up view controller
+    * Param: -
+    * Return: displays view controller
+    * Properties modified: view
+    * Precondition: -
     *******************************************************/
     internal func setUpLogin() {
         if (PFUser.currentUser() == nil) {
@@ -177,15 +161,7 @@ class MainViewController: UITabBarController, PFLogInViewControllerDelegate, PFS
         }
     }
     
-    /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
-    *******************************************************/
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

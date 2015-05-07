@@ -15,6 +15,16 @@ class TheatreViewController: UIViewController {
     var link:String="https://www.google.com/maps/search/movie+theater+near+Ithaca,+NY/@42.4422877,-76.4983749,13z/data=!3m1!4b1"
     override func viewDidLoad() {
         
+        /******************************************************
+        * Author: Sam Kamenetz
+        * Function: viewDidLoad
+        * Description: customizes navigationBar converts global string to link so that google maps for
+        *              Ithaca Movie Theatres is opened in the webView. Sends http request for this link
+        * Param: -
+        * Return: -
+        * Properties modified: googleMap (webView)
+        * Precondition: -
+        *******************************************************/
         super.viewDidLoad()
 
         //self.navigationController?.navigationItem.setRightBarButtonItem(backButton, animated: true)
@@ -28,6 +38,7 @@ class TheatreViewController: UIViewController {
         
     }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

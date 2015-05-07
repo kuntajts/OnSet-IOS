@@ -32,11 +32,11 @@ class ProfileViewController: UIViewController {
     /******************************************************
     * Author: Charlie Woodward
     * Function: viewDidAppear
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Description: displays a label with username for current user
+    * Param: Bool: animated
+    * Return: -
+    * Properties modified: usernameLabel
+    * Precondition: -
     *******************************************************/
     override func viewDidAppear(animated: Bool) {
         var user = PFUser.currentUser()
@@ -46,13 +46,13 @@ class ProfileViewController: UIViewController {
     
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
+    * Author: Charlie Woodward
+    * Function: logoutClicked
+    * Description: logs current user out of the app
+    * Param: sender UIButton
     * Return:
-    * Properties modified:
-    * Precondition:
+    * Properties modified: leads back to login screen
+    * Precondition: button clicked
     *******************************************************/
     @IBAction func logoutClicked(sender: UIButton) {
         PFUser.logOut()
@@ -62,15 +62,7 @@ class ProfileViewController: UIViewController {
         mainViewController!.setUpLogin()
     }
     
-    /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
-    *******************************************************/
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

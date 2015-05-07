@@ -14,13 +14,15 @@ class WebsiteViewController: UIViewController{
     var movieInfo:PFObject!
     
     /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
+    * Author: Charlie Woodward
+    * Function: viewDidLoad
+    * Description: navigation controller is programatically customized; 
+    *              movieInfo is instantiated with data from MovieDetailViewController
+    *              the URL used is kept in Parse for most movies
+    * Param: -
+    * Return: -
+    * Properties modified: movieWebsite (webview)
+    * Precondition: -
     *******************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +37,7 @@ class WebsiteViewController: UIViewController{
         movieWebsite.loadRequest(request)
     }
     
-    /******************************************************
-    * Author:
-    * Function:
-    * Description:
-    * Param:
-    * Return:
-    * Properties modified:
-    * Precondition:
-    *******************************************************/
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
